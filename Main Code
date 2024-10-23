@@ -1,0 +1,41 @@
+def add(n1, n2):
+    return n1 + n2
+def subtract(n1,n2):
+    return n1-n2
+def multiply(n1,n2):
+    return n1*n2
+def division(n1,n2):
+    return n1/n2
+def calculator():
+    n1=float(input("Enter First Number :"))
+    o=input("Enter operator :")
+    n2 = float(input("Enter second Number :"))
+    calculator={"+":add(n1,n2),"-":subtract(n1,n2),"*":multiply(n1,n2),"/":division(n1,n2)}
+    value=calculator[o]
+    print(value)
+    if o not in ["+","-","*","/"]:
+        print("Wrong input for operator")
+    want_to_continue = False
+    while not want_to_continue:
+        i=input("Want to do a new calculation( Enter new or 2) or continue calculation with last one (Enter continue or 1) or exit calculator(Enter exit or 3)\n")
+        if i.lower()=="exit" or i=="3":
+            want_to_continue=True
+        elif i.lower()=="continue" or i=="1":
+            n1 = value
+            o = input("Enter operator :")
+            n2 = float(input("Enter second Number :"))
+            calculator = {"+": add(n1, n2), "-": subtract(n1, n2), "*": multiply(n1, n2), "/": division(n1, n2)}
+            value_new = calculator[o]
+            print(value_new)
+            if o not in ["+", "-", "*", "/"]:
+                print("Wrong input for operator")
+        elif i.lower()=="new" or i=="2":
+            n1 = float(input("Enter First Number :"))
+            o = input("Enter operator :")
+            n2 = float(input("Enter second Number :"))
+            calculator = {"+": add(n1, n2), "-": subtract(n1, n2), "*": multiply(n1, n2), "/": division(n1, n2)}
+            value = calculator[o]
+            print(value)
+            if o not in ["+", "-", "*", "/"]:
+                print("Wrong input for operator")
+calculator()
